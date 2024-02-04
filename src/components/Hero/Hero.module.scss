@@ -1,0 +1,23 @@
+.heroOverlay {
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../../public/images/converted.png);
+  width: 100%;
+  max-width: 360px;
+  height: 494px;
+  position: relative;
+  top: -100px;
+}
+
+.heroTitle {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 31.6px;
+  letter-spacing: -1%;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 771px;
+  padding-top: 212px;
+}

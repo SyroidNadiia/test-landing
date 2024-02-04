@@ -1,0 +1,11 @@
+/* @import '../../scss/utilities/breakpoint-mixin.scss';
+
+.sectionContainer {
+  padding-bottom: 56px;
+}
+
+@media (min-width: 1230px) {
+  .sectionContainer {
+    padding-bottom: 104px;
+  }
+} */
