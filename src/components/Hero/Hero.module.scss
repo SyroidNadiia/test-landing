@@ -3,21 +3,53 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url(../../../public/images/converted.png);
+  background-image: url(../../../public/images/background.png);
   width: 100%;
   max-width: 360px;
   height: 494px;
   position: relative;
   top: -100px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 155px;
+    height: 157px;
+    top: 105px;
+    left: -85px;
+    transform: rotate(15deg);
+    background-image: url(../../../public/images/balloons1.png);
+    background-size: cover;
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 177px;
+    height: 180px;
+    bottom: 32px;
+    left: 192px;
+    transform: rotate(16deg);
+    background-image: url(../../../public/images/balloons2.png);
+    background-size: cover;
+    z-index: 1;
+  }
 }
 
 .heroTitle {
   font-size: 40px;
   font-weight: 500;
   line-height: 31.6px;
-  letter-spacing: -1%;
   text-align: center;
   text-transform: uppercase;
   max-width: 771px;
   padding-top: 212px;
+  color: var(--cl-accent);
+  position: relative;
+  z-index: 2;
+}
+
+.heroText {
+  color: var(--cl-main);
 }

@@ -1,9 +1,9 @@
-/* @import '../../scss/utilities/breakpoint-mixin.scss';
+/* @import '../../scss/utilities/breakpoint-mixin.scss'; */
 
 .sectionContainer {
-  padding-bottom: 56px;
+  padding: 20px 0;
 }
-
+/* 
 @media (min-width: 1230px) {
   .sectionContainer {
     padding-bottom: 104px;

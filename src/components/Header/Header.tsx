@@ -34,39 +34,38 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Container className={styles.headerContainer}>
-          {/* Logo */}
-          {isMobileMenuOpen ? (
-            <Link href={`/`} className={`${styles.logo} ${styles.second}`}>
-              <Image
-                src={logo_second}
-                alt="logo"
-                width={104}
-                height={32}
-                priority
-              />
-            </Link>
-          ) : (
-            <Link href={`/`} className={`${styles.logo} ${styles.main}`}>
-              <Image
-                src={logo_main}
-                alt="logo"
-                width={104}
-                height={32}
-                priority
-              />
-            </Link>
-          )}
+        {/* Logo */}
+        {isMobileMenuOpen ? (
+          <Link href={`/`} className={`${styles.logo} ${styles.second}`}>
+            <Image
+              src={logo_second}
+              alt="logo"
+              width={104}
+              height={32}
+              priority
+            />
+          </Link>
+        ) : (
+          <Link href={`/`} className={`${styles.logo} ${styles.main}`}>
+            <Image
+              src={logo_main}
+              alt="logo"
+              width={104}
+              height={32}
+              priority
+            />
+          </Link>
+        )}
 
-          <button
-            type="button"
-            className={styles.menuIcon}
-            onClick={toggleMenuOpen}
-            aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
-          >
-            menu
-            <PiCirclesFourFill />
-          </button>
-      
+        <button
+          type="button"
+          className={styles.menuIcon}
+          onClick={toggleMenuOpen}
+          aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+        >
+          menu
+          <PiCirclesFourFill style={{ width: 24, height: 24 }} />
+        </button>
 
         {/* burger menu */}
         <div

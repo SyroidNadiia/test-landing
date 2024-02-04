@@ -1,0 +1,32 @@
+/* Styles for dots*/
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.dots > li {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cl-light-gray);
+  position: relative;
+}
+
+.dots > li:global(.slick-active) {
+  background-color: var(--cl-main);
+}
+
+// .dots button {
+//   position: absolute;
+//   inset: 0;
+//   border: none;
+//   background-color: var(--cl-gray-100);
+//   cursor: pointer;
+// }
+
+// .dots > li:global(.slick-active) button {
+//   background-color: var(--cl-primary-500);
+// }

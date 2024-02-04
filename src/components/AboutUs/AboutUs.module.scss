@@ -1,0 +1,65 @@
+.aboutUsTitle {
+  margin-bottom: 16px;
+}
+
+.aboutUsDescription {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.advantageList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.advantageElement {
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.color-1 {
+  background-color: var(--cl-accent);
+}
+
+.color-2 {
+  background-color: var(--cl-main);
+}
+
+.color-3 {
+  background-color: var(--cl-dark-gray);
+}
+
+.color-4 {
+  background-color: var(--cl-light-gray);
+}
+
+.advantageTitle {
+  margin-bottom: 55px;
+  max-width: 200px;
+}
+
+.advantageDescription {
+  max-width: 240px;
+}
+
+.body {
+  position: relative;
+}
+
+.slider_body {
+  border-radius: 24px;
+  position: relative;
+  height: 253px;
+}
+
+.content {
+  position: absolute;
+  left: 16px;
+  top: 40px;
+  z-index: 1;
+}
+
+.dots {
+  margin-top: 16px;
+}

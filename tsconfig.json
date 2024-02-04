@@ -22,6 +22,7 @@
     ],
     "paths": {
       "@components/*": ["./src/components/*"],
+      "@app/*": ["./src/app/*"],
       "@images/*": ["./public/images/*"],
       "@types/*": ["./src/types/*"],
       "@lib/*": ["./lib/*"],

@@ -13,7 +13,7 @@ export const inter = localFont({
 export const anzeigen_grotesk = localFont({
   src: [
     {
-      path: '../../public/fonts/Anzeigen-Grotesk-T.woff2',
+      path: '../../public/fonts/Anzeigen-Grotesk-T.ttf',
       weight: '500',
       style: 'normal',
     },

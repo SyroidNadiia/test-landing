@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@components/Header/Header";
 
 import { anzeigen_grotesk } from './fonts';
+import Footer from "@components/Footer/Footer";
 
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main className={styles.main}>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
