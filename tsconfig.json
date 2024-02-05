@@ -24,6 +24,7 @@
       "@components/*": ["./src/components/*"],
       "@app/*": ["./src/app/*"],
       "@images/*": ["./public/images/*"],
+      "@helpers/*": ["./src/helpers/*"],
       "@types/*": ["./src/types/*"],
       "@lib/*": ["./lib/*"],
       "@context/*": ["./context/*"],

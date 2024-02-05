@@ -10,7 +10,6 @@ import Slider from 'react-slick';
 import { generateReviewCards } from './reviewsCard';
 import { inter } from '@app/fonts';
 import { BiUserPin } from 'react-icons/bi';
-
 interface ReviewsProps {
   id: string;
 }
@@ -30,7 +29,7 @@ const Reviews: React.FC<ReviewsProps> = ({ id }) => {
         >
           Recenzje
         </Typography>
-        <div className={styles.body}>
+        <ul className={styles.reviewsList}>
           <ReusableSlider
             ref={sliderRef}
             beforeChange={(prev, next) => setCurrentSlide(next)}
@@ -38,12 +37,12 @@ const Reviews: React.FC<ReviewsProps> = ({ id }) => {
             dots
           >
             {reviewData.map(({ id, content, author }) => (
-              <div key={id} className={styles.slider_body}>
-                <div className={`${styles.reviewElement} ${styles.content}`}>
+              <li key={id} className={styles.slider_body}>
+                <div className={styles.reviewElement}>
                   <Typography
                     variant="subheding3"
-                    color="var(--cl-white)"
-                    className={styles.reviewTitle}
+                    color="var(--cl-main)"
+                    className={`${inter.className} ${styles.reviewTitle}`}
                   >
                     {content}
                   </Typography>
@@ -56,16 +55,16 @@ const Reviews: React.FC<ReviewsProps> = ({ id }) => {
                     <Typography
                       variant="subheding4"
                       className={`${inter.className} ${styles.reviewDescription}`}
-                      color="var(--cl-white)"
+                      color="var(--cl-extra-text)"
                     >
                       {author}
                     </Typography>
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
           </ReusableSlider>
-        </div>
+        </ul>
       </Container>
     </Section>
   );

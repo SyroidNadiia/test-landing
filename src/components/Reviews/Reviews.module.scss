@@ -9,7 +9,7 @@
 .slider_body {
   border-radius: 20px;
   position: relative;
-  height: 360px;
+  height: 229px;
 }
 
 .content {
@@ -26,12 +26,21 @@
   margin-bottom: 40px;
 }
 
+.reviewsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
 .reviewElement {
   background-color: var(--cl-extra-accent);
   padding: 24px;
   border-radius: 24px;
   width: 320px;
   height: 229px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .reviewAuthor {
@@ -41,6 +50,10 @@
 }
 
 .reviewIcon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.dots {
+  margin-top: 36px;
 }

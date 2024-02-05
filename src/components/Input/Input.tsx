@@ -4,6 +4,7 @@ import React, {
   TextareaHTMLAttributes,
 } from 'react';
 import { FieldError } from 'react-hook-form/dist/types';
+import { inter } from '@app/fonts';
 
 import styles from './Input.module.scss';
 
@@ -21,7 +22,6 @@ type InputProps = {
   id?: string;
   multiline?: boolean;
   value?: string;
-  isPhone?: boolean;
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -45,41 +45,19 @@ const Input = forwardRef<InputRefType, InputProps>((props, ref) => {
     id,
     multiline = false,
     value,
-    isPhone,
     ...rest
   } = props;
 
-  const inputClass = `${className || ''} ${styles.input} ${
+  const inputClass = `${inter.className || ''} ${styles.input} ${
     error && styles.errorInput
   } ${multiline && styles.textarea}`;
 
-  const renderInput = () => {
-    return isPhone ? (
-      <div className={`${styles.phoneInput} ${error && styles.errorInput}`}>
-        <input
-          id={id}
-          style={{ width: width, height: height }}
-          {...(rest as InputAttributes)}
-          ref={ref as React.RefObject<HTMLInputElement>}
-          aria-label={rest.placeholder || ''}
-        />
-      </div>
-    ) : (
-      <input
-        id={id}
-        style={{ width: width, height: height }}
-        {...(rest as InputAttributes)}
-        ref={ref as React.RefObject<HTMLInputElement>}
-        className={inputClass}
-        aria-label={rest.placeholder || ''}
-      />
-    );
-  };
-
   return (
-    <div>
+    <div
+      className={`${styles.errorContainer} ${error ? styles.errorVisible : ''}`}
+    >
       {label && (
-        <label className={styles.label} htmlFor={id}>
+        <label className={`${inter.className} ${styles.label}`} htmlFor={id}>
           {label}
         </label>
       )}
@@ -94,9 +72,18 @@ const Input = forwardRef<InputRefType, InputProps>((props, ref) => {
           value={value}
         />
       ) : (
-        renderInput()
+        <input
+          id={id}
+          style={{ width: width, height: height }}
+          {...(rest as InputAttributes)}
+          ref={ref as React.RefObject<HTMLInputElement>}
+          className={inputClass}
+          aria-label={rest.placeholder || ''}
+        />
       )}
-      {error && <p className={styles.error}>{errorMessage}</p>}
+      {error && (
+        <p className={`${inter.className} ${styles.error}`}>{errorMessage}</p>
+      )}
     </div>
   );
 });
