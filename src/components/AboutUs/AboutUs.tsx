@@ -10,7 +10,11 @@ import ReusableSlider from '@components/shared/ReusableSlider/ReusableSlider';
 import { useRef, useState } from 'react';
 import { generateAdvantageCards } from './advantageCard';
 
-const AboutUs = () => {
+interface AboutUsProps {
+  id: string;
+}
+
+const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const sliderRef = useRef<Slider | null>(null);
   const advantageData = generateAdvantageCards();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -27,7 +31,7 @@ const AboutUs = () => {
   };
 
   return (
-    <Section>
+    <Section  id={id}>
       <Container>
         <Typography
           variant="heading2"
@@ -44,43 +48,37 @@ const AboutUs = () => {
           Młodzi i energiczni, rozwijający działalność w zakresie tworzenia
           dekoracji na imprezy i wydarzenia
         </Typography>
-        <ul>
-          <div className={styles.body}>
-            <ReusableSlider
-              ref={sliderRef}
-              beforeChange={(prev, next) => setCurrentSlide(next)}
-              dotsStyles={styles.dots}
-              dots
-            >
-              {advantageData.map(({ id, title, description }) => (
-                <li
-                  key={id}
-                  className={`${styles.advantageItem} ${styles.slider_body}`}
+        <ul className={styles.advantageList}>
+          <ReusableSlider
+            ref={sliderRef}
+            beforeChange={(prev, next) => setCurrentSlide(next)}
+            dotsStyles={styles.dots}
+            dots
+          >
+            {advantageData.map(({ id, title, description }) => (
+              <li
+                key={id}
+                className={`${styles.slider_body} ${styles.advantageElement} ${
+                  styles[`color-${id}`]
+                }`}
+              >
+                <Typography
+                  variant="heading3"
+                  color="var(--cl-white)"
+                  className={styles.advantageTitle}
                 >
-                  <div
-                    className={`${styles.advantageElement} ${
-                      styles[`color-${id}`]
-                    } ${styles.content}`}
-                  >
-                    <Typography
-                      variant="heading3"
-                      color="var(--cl-white)"
-                      className={styles.advantageTitle}
-                    >
-                      {title}
-                    </Typography>
-                    <Typography
-                      variant="subheding2"
-                      className={`${inter.className} ${styles.advantageDescription}`}
-                      color="var(--cl-white)"
-                    >
-                      {description}
-                    </Typography>
-                  </div>
-                </li>
-              ))}
-            </ReusableSlider>
-          </div>
+                  {title}
+                </Typography>
+                <Typography
+                  variant="subheding2"
+                  className={inter.className}
+                  color="var(--cl-white)"
+                >
+                  {description}
+                </Typography>
+              </li>
+            ))}
+          </ReusableSlider>
         </ul>
       </Container>
     </Section>

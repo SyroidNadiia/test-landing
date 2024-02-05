@@ -11,13 +11,17 @@ import { generateReviewCards } from './reviewsCard';
 import { inter } from '@app/fonts';
 import { BiUserPin } from 'react-icons/bi';
 
-const Reviews = () => {
+interface ReviewsProps {
+  id: string;
+}
+
+const Reviews: React.FC<ReviewsProps> = ({ id }) => {
   const sliderRef = useRef<Slider | null>(null);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const reviewData = generateReviewCards();
 
   return (
-    <Section>
+    <Section id={id}>
       <Container>
         <Typography
           variant="heading2"

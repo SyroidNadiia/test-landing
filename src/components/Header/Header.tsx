@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { PiCirclesFourFill } from 'react-icons/pi';
 import Link from 'next/link';
+import { Link as LinkScroll } from 'react-scroll';
 import { TbSquareRoundedLetterX } from 'react-icons/tb';
 
 import Container from '../Container/Container';
@@ -14,48 +15,60 @@ import Navigation from '@components/Navigation/Navigation';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenuOpen = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
-    const html = document.querySelector('html');
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setIsScrolled(offset > 50);
+    };
 
-    if (html) {
-      if (isMobileMenuOpen) {
-        html.classList.add(styles.overflowHidden);
-      } else {
-        html.classList.remove(styles.overflowHidden);
-      }
-    }
-  }, [isMobileMenuOpen]);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <Container className={styles.headerContainer}>
-        {/* Logo */}
-        {isMobileMenuOpen ? (
-          <Link href={`/`} className={`${styles.logo} ${styles.second}`}>
-            <Image
-              src={logo_second}
-              alt="logo"
-              width={104}
-              height={32}
-              priority
-            />
-          </Link>
-        ) : (
-          <Link href={`/`} className={`${styles.logo} ${styles.main}`}>
-            <Image
-              src={logo_main}
-              alt="logo"
-              width={104}
-              height={32}
-              priority
-            />
-          </Link>
+        {isScrolled && !isMobileMenuOpen && (
+          <LinkScroll
+            to="Hero"
+            smooth={true}
+            duration={500}
+            className={styles.headerLink}
+          >
+            <button
+              type="button"
+              className={styles.menuButton}
+              onClick={toggleMenuOpen}
+              aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+            >
+              <PiCirclesFourFill style={{ width: 24, height: 24 }} />
+            </button>
+          </LinkScroll>
         )}
+
+        {/* Logo */}
+        <Link
+          href={`/`}
+          className={`${styles.logo} ${
+            isMobileMenuOpen ? styles.second : styles.main
+          } `}
+        >
+          <Image
+            src={isMobileMenuOpen ? logo_second : logo_main}
+            alt="logo"
+            style={{ width: 104, height: isMobileMenuOpen ? 28 : 32 }}
+            priority
+          />
+        </Link>
 
         <button
           type="button"
@@ -70,7 +83,7 @@ const Header = () => {
         {/* burger menu */}
         <div
           className={`${styles.burgerMenu} ${
-            isMobileMenuOpen && styles.isOpen
+            isMobileMenuOpen ? styles.isOpen : ''
           }`}
         >
           <Container>

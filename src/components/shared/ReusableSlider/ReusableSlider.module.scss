@@ -19,14 +19,15 @@
   background-color: var(--cl-main);
 }
 
-// .dots button {
-//   position: absolute;
-//   inset: 0;
-//   border: none;
-//   background-color: var(--cl-gray-100);
-//   cursor: pointer;
-// }
+.dots button {
+  position: absolute;
+  inset: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--cl-lighter-gray);
+  cursor: pointer;
+}
 
-// .dots > li:global(.slick-active) button {
-//   background-color: var(--cl-primary-500);
-// }
+.dots > li:global(.slick-active) button {
+  background-color: var(--cl-main);
+}

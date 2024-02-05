@@ -1,7 +1,6 @@
 import React from 'react';
-import { useToggle } from 'usehooks-ts';
 import styles from './Navigation.module.scss';
-import Link from 'next/link';
+import { Link as LinkScroll } from 'react-scroll';
 
 interface NavigationPropsI {
   className?: string;
@@ -22,30 +21,42 @@ export const generateNavLinks = ({
   kontakty,
 }: NavDictI) => {
   return {
-    [główna]: '#główna',
-    [oNas]: '#oNas',
-    [recenzje]: '#recenzje',
-    [kontakty]: '#kontakty',
+    [główna]: 'główna',
+    [oNas]: 'oNas',
+    [recenzje]: 'recenzje',
+    [kontakty]: 'kontakty',
   };
 };
 
 const Navigation: React.FC<NavigationPropsI> = ({ className, onClick }) => {
-
   const navDict: NavDictI = {
-    główna: 'główna',  
-    oNas: 'oNas',      
-    recenzje: 'recenzje', 
-    kontakty: 'kontakty', 
+    główna: 'główna',
+    oNas: 'oNas',
+    recenzje: 'recenzje',
+    kontakty: 'kontakty',
   };
 
   const navLinks = generateNavLinks(navDict);
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
 
   return (
     <nav>
       <ul className={styles.navList}>
         {Object.keys(navLinks).map(key => (
           <li key={key} className={styles.navItem}>
-            <Link href={navLinks[key]}>{key}</Link>
+            <LinkScroll
+              to={navLinks[key]}
+              smooth={true}
+              duration={500}
+              onClick={handleClick}
+            >
+              {key}
+            </LinkScroll>
           </li>
         ))}
       </ul>
@@ -54,4 +65,3 @@ const Navigation: React.FC<NavigationPropsI> = ({ className, onClick }) => {
 };
 
 export default Navigation;
-            

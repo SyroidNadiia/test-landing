@@ -10,9 +10,13 @@ import { inter } from '@app/fonts';
 const PHONE_NUMBER = '+48 793 351 407';
 const EMAIL_ADDRESS = 'confettibalony@gmail.com';
 
-const Contacts = () => {
+interface ContactsProps {
+  id: string;
+}
+
+const Contacts: React.FC<ContactsProps> = ({ id }) => {
   return (
-    <Section>
+    <Section  id={id}>
       <Container>
         <Typography
           variant="heading2"
