@@ -20,8 +20,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const sliderRef = useRef<Slider | null>(null);
   const advantageData = generateAdvantageCards();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const { width } = useWindowSize();
-  const isMobScreen = width < 767;
+  const { width } = useWindowSize() || {}; 
+  const isMobScreen = width < 767 && width !== undefined;
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
