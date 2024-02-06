@@ -5,6 +5,7 @@ const variantsMapping = {
   heading2: 'h2',
   heading3: 'h3',
   heading4: 'h4',
+  heading5: 'h5',
   subheding1: 'p',
   subheding2: 'p',
   subheding3: 'p',

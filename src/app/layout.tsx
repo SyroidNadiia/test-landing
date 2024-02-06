@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import styles from "./page.module.css";
-import "./globals.css";
+import Footer from "@components/Footer/Footer";
 import Header from "@components/Header/Header";
 
+import "./globals.css";
+
 import { anzeigen_grotesk } from './fonts';
-import Footer from "@components/Footer/Footer";
+import styles from "./page.module.css";
 
 
 export const metadata: Metadata = {

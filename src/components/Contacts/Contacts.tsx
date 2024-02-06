@@ -1,12 +1,13 @@
-import Container from '@components/Container/Container';
-import Section from '@components/Section/Section';
-import Typography from '@components/Typography/Typography';
-import styles from './Contacts.module.scss';
 import Link from 'next/link';
 import { BsTelephone } from 'react-icons/bs';
 import { IoMailOutline } from 'react-icons/io5';
 import { inter } from '@app/fonts';
+import Container from '@components/Container/Container';
 import InformationForm from '@components/InformationForm/InformationForm';
+import Section from '@components/Section/Section';
+import Typography from '@components/Typography/Typography';
+
+import styles from './Contacts.module.scss';
 
 const PHONE_NUMBER = '+48 793 351 407';
 const EMAIL_ADDRESS = 'confettibalony@gmail.com';
@@ -20,7 +21,7 @@ const Contacts: React.FC<ContactsProps> = ({ id }) => {
     <Section id={id}>
       <Container>
         <Typography
-          variant="heading2"
+          variant="heading4"
           color="var(--cl-accent)"
           className={styles.addressTitle}
         >
@@ -28,7 +29,7 @@ const Contacts: React.FC<ContactsProps> = ({ id }) => {
         </Typography>
         <div>
           <Typography
-            variant="heading4"
+            variant="heading5"
             color="var(--cl-main)"
             className={styles.addressDescription}
           >

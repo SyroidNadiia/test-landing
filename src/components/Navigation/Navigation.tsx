@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Navigation.module.scss';
 import { Link as LinkScroll } from 'react-scroll';
+
+import styles from './Navigation.module.scss';
 
 interface NavigationPropsI {
   className?: string;

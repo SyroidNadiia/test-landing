@@ -1,7 +1,8 @@
 import Container from '@components/Container/Container';
-import styles from './Hero.module.scss';
 import Section from '@components/Section/Section';
 import Typography from '@components/Typography/Typography';
+
+import styles from './Hero.module.scss';
 
 interface HeroProps {
   id: string;

@@ -1,3 +1,5 @@
+@import '../../scss/utilities/breakpoint-mixin.scss';
+
 .addressTitle {
   margin-bottom: 36px;
 }
@@ -13,6 +15,10 @@
   text-align: center;
   letter-spacing: -1px;
   color: var(--cl-extra-text);
+
+  @include breakpoint('tablet-and-up') {
+    font-size: 24px;
+  }
 }
 
 .addressItem {

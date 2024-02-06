@@ -1,6 +1,7 @@
-import Typography from '@components/Typography/Typography';
-import styles from './AdvantageItem.module.scss';
 import { inter } from '@app/fonts';
+import Typography from '@components/Typography/Typography';
+
+import styles from './AdvantageItem.module.scss';
 
 interface AdvantageItemProps {
   id: number;

@@ -1,11 +1,12 @@
-import Container from '@components/Container/Container';
-import styles from './Footer.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo_main from '@images/logo/logo_main.svg';
-import Typography from '@components/Typography/Typography';
 import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 import { inter } from '@app/fonts';
+import Container from '@components/Container/Container';
+import Typography from '@components/Typography/Typography';
+import logo_main from '@images/logo/logo_main.svg';
+
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (

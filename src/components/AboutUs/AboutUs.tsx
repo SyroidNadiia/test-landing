@@ -1,16 +1,18 @@
 'use client';
 
-import Container from '@components/Container/Container';
-import Section from '@components/Section/Section';
-import styles from './AboutUs.module.scss';
-import Typography from '@components/Typography/Typography';
+import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import { inter } from '@app/fonts';
+import Container from '@components/Container/Container';
+import Section from '@components/Section/Section';
 import ReusableSlider from '@components/shared/ReusableSlider/ReusableSlider';
-import { useRef, useState } from 'react';
-import { generateAdvantageCards } from './advantageCard';
+import Typography from '@components/Typography/Typography';
 import { useWindowSize } from 'usehooks-ts';
+
 import AdvantageItem from './AdvantageItem/AdvantageItem';
+import { generateAdvantageCards } from './advantageCard';
+
+import styles from './AboutUs.module.scss';
 
 interface AboutUsProps {
   id: string;

@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import Slider, { Settings } from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -47,6 +48,7 @@ const ReusableSlider = forwardRef<ForwardedRefType, ReusableSliderProps>(
       swipeToSlide,
       autoplay = false,
       autoplaySpeed = 4000,
+    
     },
     ref
   ) => {
@@ -63,6 +65,7 @@ const ReusableSlider = forwardRef<ForwardedRefType, ReusableSliderProps>(
       swipeToSlide,
       autoplay,
       autoplaySpeed,
+
       appendDots: (dots: React.ReactNode) => <ul>{dots}</ul>,
       dotsClass: `${styles.dots} ${dotsStyles || ''}`,
       customPaging: i => (

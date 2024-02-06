@@ -1,17 +1,17 @@
 'use client';
 import Image from 'next/image';
-import { PiCirclesFourFill } from 'react-icons/pi';
 import Link from 'next/link';
-import { Link as LinkScroll } from 'react-scroll';
+import { useEffect, useState } from 'react';
+import { PiCirclesFourFill } from 'react-icons/pi';
 import { TbSquareRoundedLetterX } from 'react-icons/tb';
+import { Link as LinkScroll } from 'react-scroll';
+import Navigation from '@components/Navigation/Navigation';
+import logo_main from '@images/logo/logo_main.svg';
+import logo_second from '@images/logo/logo_second.svg';
 
 import Container from '../Container/Container';
 
-import logo_main from '@images/logo/logo_main.svg';
-import logo_second from '@images/logo/logo_second.svg';
 import styles from './Header.module.scss';
-import { useEffect, useState } from 'react';
-import Navigation from '@components/Navigation/Navigation';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

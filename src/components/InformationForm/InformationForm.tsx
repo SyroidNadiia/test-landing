@@ -1,16 +1,16 @@
 'use client';
-import Container from '@components/Container/Container';
-import Section from '@components/Section/Section';
-import styles from './InformationForm.module.scss';
-import Input from '@components/Input/Input';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { yupResolver } from '@hookform/resolvers/yup';
+import Button from '@components/Button/Button';
+import Container from '@components/Container/Container';
+import Input from '@components/Input/Input';
+import Section from '@components/Section/Section';
 import validationSchema, {
   InformationFormValidation,
 } from '@helpers/formValidationSchema';
-import { useState } from 'react';
-import Button from '@components/Button/Button';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import styles from './InformationForm.module.scss';
 
 export interface InformationFormValues {
   firstName: string;

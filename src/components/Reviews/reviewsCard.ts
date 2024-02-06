@@ -10,7 +10,7 @@ export const reviews = [
   },
   {
     content:
-      'Ścianka  była piękna , bardzo delikatna , Jeszcze raz bardzo dziękuję ) ',
+      'Ścianka  była piękna, bardzo delikatna, Jeszcze raz bardzo dziękuję ) ',
     author: 'Katia Maksymiw',
   },
 ];

@@ -22,10 +22,9 @@
   align-items: center;
   justify-content: center;
 
-  // @include breakpoint('mobile-small') {
-  //   padding: 12px 20px;
-  //   font-size: 16px;
-  // }
+  @include breakpoint('tablet-and-up') {
+    font-size: 40px;
+  }
 }
 
 .primary {
