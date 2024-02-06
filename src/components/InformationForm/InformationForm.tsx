@@ -50,6 +50,7 @@ const InformationForm = () => {
 
   const onSubmit = async (dataForm: InformationFormValues) => {
     console.log(dataForm);
+    formControl.reset();
   };
 
   const handleOrderNotesChange = (

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { BsTelephone } from 'react-icons/bs';
 import { IoMailOutline } from 'react-icons/io5';
 import { inter } from '@app/fonts';
+import InformationForm from '@components/InformationForm/InformationForm';
 
 const PHONE_NUMBER = '+48 793 351 407';
 const EMAIL_ADDRESS = 'confettibalony@gmail.com';
@@ -16,7 +17,7 @@ interface ContactsProps {
 
 const Contacts: React.FC<ContactsProps> = ({ id }) => {
   return (
-    <Section  id={id}>
+    <Section id={id}>
       <Container>
         <Typography
           variant="heading2"
@@ -65,6 +66,8 @@ const Contacts: React.FC<ContactsProps> = ({ id }) => {
             </ul>
           </address>
         </div>
+
+        <InformationForm />
       </Container>
     </Section>
   );

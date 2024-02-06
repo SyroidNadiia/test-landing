@@ -1,0 +1,9 @@
+@import '../../scss/utilities/breakpoint-mixin.scss';
+
+.sectionContainer {
+  padding-bottom: 80px;
+
+  @include breakpoint('desktop') {
+    padding-bottom: 100px;
+  }
+}

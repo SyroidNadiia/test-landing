@@ -9,6 +9,8 @@ import { inter } from '@app/fonts';
 import ReusableSlider from '@components/shared/ReusableSlider/ReusableSlider';
 import { useRef, useState } from 'react';
 import { generateAdvantageCards } from './advantageCard';
+import { useWindowSize } from 'usehooks-ts';
+import AdvantageItem from './AdvantageItem/AdvantageItem';
 
 interface AboutUsProps {
   id: string;
@@ -18,6 +20,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const sliderRef = useRef<Slider | null>(null);
   const advantageData = generateAdvantageCards();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const { width } = useWindowSize();
+  const isMobScreen = width < 767;
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -31,8 +35,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   };
 
   return (
-    <Section  id={id}>
-      <Container>
+    <Section id={id}>
+      <Container className={styles.aboutUsContainer}>
         <Typography
           variant="heading2"
           color="var(--cl-main)"
@@ -48,38 +52,36 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
           Młodzi i energiczni, rozwijający działalność w zakresie tworzenia
           dekoracji na imprezy i wydarzenia
         </Typography>
-        <ul className={styles.advantageList}>
-          <ReusableSlider
-            ref={sliderRef}
-            beforeChange={(prev, next) => setCurrentSlide(next)}
-            dotsStyles={styles.dots}
-            dots
-          >
+        {isMobScreen ? (
+          <ul className={styles.advantageList}>
+            <ReusableSlider
+              ref={sliderRef}
+              beforeChange={(prev, next) => setCurrentSlide(next)}
+              dotsStyles={styles.dots}
+              dots
+            >
+              {advantageData.map(({ id, title, description }) => (
+                <AdvantageItem
+                  key={id}
+                  id={id}
+                  title={title}
+                  description={description}
+                />
+              ))}
+            </ReusableSlider>
+          </ul>
+        ) : (
+          <ul className={styles.advantageList}>
             {advantageData.map(({ id, title, description }) => (
-              <li
+              <AdvantageItem
                 key={id}
-                className={`${styles.slider_body} ${styles.advantageElement} ${
-                  styles[`color-${id}`]
-                }`}
-              >
-                <Typography
-                  variant="heading3"
-                  color="var(--cl-white)"
-                  className={styles.advantageTitle}
-                >
-                  {title}
-                </Typography>
-                <Typography
-                  variant="subheding2"
-                  className={inter.className}
-                  color="var(--cl-white)"
-                >
-                  {description}
-                </Typography>
-              </li>
+                id={id}
+                title={title}
+                description={description}
+              />
             ))}
-          </ReusableSlider>
-        </ul>
+          </ul>
+        )}
       </Container>
     </Section>
   );

@@ -19,6 +19,12 @@ const Header = () => {
 
   const toggleMenuOpen = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   };
 
   useEffect(() => {
@@ -70,15 +76,23 @@ const Header = () => {
           />
         </Link>
 
-        <button
-          type="button"
-          className={styles.menuIcon}
-          onClick={toggleMenuOpen}
-          aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
-        >
-          menu
-          <PiCirclesFourFill style={{ width: 24, height: 24 }} />
-        </button>
+        {!isScrolled && isMobileMenuOpen ? (
+          <TbSquareRoundedLetterX
+            className={styles.closeIcon}
+            onClick={toggleMenuOpen}
+            aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+          />
+        ) : (
+          <button
+            type="button"
+            className={styles.menuIcon}
+            onClick={toggleMenuOpen}
+            aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+          >
+            menu
+            <PiCirclesFourFill style={{ width: 24, height: 24 }} />
+          </button>
+        )}
 
         {/* burger menu */}
         <div
@@ -87,12 +101,6 @@ const Header = () => {
           }`}
         >
           <Container>
-            <TbSquareRoundedLetterX
-              className={styles.closeIcon}
-              onClick={toggleMenuOpen}
-              aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
-            />
-
             <Navigation
               className={styles.mobileMenu}
               onClick={toggleMenuOpen}

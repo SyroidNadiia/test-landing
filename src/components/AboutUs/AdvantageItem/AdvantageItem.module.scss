@@ -1,0 +1,55 @@
+@import '../../../scss/utilities/breakpoint-mixin.scss';
+
+.advantageElement {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+
+  @include breakpoint('tablet-and-up') {
+    height: 287px;
+    width: 596px;
+    padding: 48px;
+  }
+
+  @include breakpoint('desktop') {
+    height: 293px;
+  }
+}
+
+.color-1 {
+  background-color: var(--cl-accent);
+}
+
+.color-2 {
+  background-color: var(--cl-main);
+}
+
+.color-3 {
+  background-color: var(--cl-dark-gray);
+}
+
+.color-4 {
+  background-color: var(--cl-light-gray);
+}
+
+.advantageTitle {
+  max-width: 200px;
+
+  @include breakpoint('tablet') {
+    max-width: 320px;
+  }
+
+  @include breakpoint('desktop') {
+    max-width: 350px;
+  }
+}
+
+
+.advantageDescription {
+    @include breakpoint('tablet') {
+    max-width: 400px;
+  }
+}

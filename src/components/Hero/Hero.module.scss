@@ -1,55 +1,119 @@
+@import '../../scss/utilities/breakpoint-mixin.scss';
+
 .heroOverlay {
-  margin: 0 auto;
+  margin: -96px auto 0;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: top left;
   background-position: center;
   background-image: url(../../../public/images/background.png);
   width: 100%;
-  max-width: 360px;
   height: 494px;
   position: relative;
-  top: -100px;
+
+  @include breakpoint('mobile') {
+    min-width: 360px;
+  }
+
+  @include breakpoint('tablet') {
+    height: 698px;
+    min-width: 768px;
+    background-size: 768px 698px;
+  }
+
+  @include breakpoint('desktop') {
+    height: 800px;
+    margin: -106px auto 0;
+    min-width: 1440px;
+    background-size: 1600px 800px;
+  }
 
   &::before {
     content: '';
     position: absolute;
-    width: 155px;
-    height: 157px;
-    top: 105px;
-    left: -85px;
-    transform: rotate(15deg);
+    width: 175px;
+    height: 177px;
+    top: 94px;
+    left: -69px;
     background-image: url(../../../public/images/balloons1.png);
     background-size: cover;
+    background-position: center;
     z-index: 1;
+      animation: balloonAnimation 4s ease-in-out infinite;
+
+    @include breakpoint('tablet') {
+      width: 307px;
+      height: 313px;
+      left: -96px;
+      transform: rotate(3deg);
+    }
+
+    @include breakpoint('desktop') {
+      width: 422px;
+      height: 442px;
+      top: 97px;
+      left: 90px;
+      transform: rotate(-28deg);
+    }
   }
 
   &::after {
     content: '';
     position: absolute;
-    width: 177px;
-    height: 180px;
-    bottom: 32px;
-    left: 192px;
-    transform: rotate(16deg);
+    width: 206px;
+    height: 199px;
+    bottom: 24px;
+    left: 197px;
+    transform: rotate(12deg);
     background-image: url(../../../public/images/balloons2.png);
     background-size: cover;
     z-index: 1;
+      animation: balloonAnimation 4s ease-in-out infinite;
+
+    @include breakpoint('tablet') {
+      width: 346px;
+      height: 340px;
+      bottom: 2px;
+      left: 462px;
+      transform: rotate(6deg);
+    }
+
+    @include breakpoint('desktop') {
+      width: 493px;
+      height: 497px;
+      bottom: 58px;
+      left: 878px;
+      transform: rotate(-11deg);
+    }
   }
 }
 
 .heroTitle {
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 31.6px;
-  text-align: center;
-  text-transform: uppercase;
-  max-width: 771px;
   padding-top: 212px;
-  color: var(--cl-accent);
   position: relative;
   z-index: 2;
+
+  @include breakpoint('tablet') {
+    padding-top: 247px;
+  }
+
+  @include breakpoint('desktop') {
+    padding-top: 242px;
+  }
 }
 
 .heroText {
   color: var(--cl-main);
+}
+
+
+@keyframes balloonAnimation {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
 }

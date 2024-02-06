@@ -1,12 +1,22 @@
-// .typography--variant-heading1 {
-  // font-size: 28px;
-  // font-weight: 350;
-  // line-height: 1.24;
+@import '../../scss/utilities/breakpoint-mixin.scss';
 
-  // @include breakpoint('mobile-small') {
-  //   font-size: 26px;
-  // }
-// }
+.typography--variant-heading1 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 0.78;
+  text-align: center;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+
+  @include breakpoint('tablet') {
+    font-size: 64px;
+    line-height: 0.9;
+  }
+
+  @include breakpoint('desktop') {
+    font-size: 88px;
+  }
+}
 
 .typography--variant-heading2 {
   font-weight: 500;
@@ -15,6 +25,14 @@
   letter-spacing: -1px;
   text-align: center;
   text-transform: uppercase;
+
+  @include breakpoint('tablet') {
+    font-size: 48px;
+  }
+
+  @include breakpoint('desktop') {
+    font-size: 56px;
+  }
 }
 
 .typography--variant-heading3 {
@@ -23,6 +41,16 @@
   line-height: 1.2;
   letter-spacing: -1px;
   text-transform: uppercase;
+
+  @include breakpoint('tablet') {
+    font-size: 40px;
+    line-height: 0.79;
+  }
+
+  @include breakpoint('desktop') {
+    font-size: 40px;
+    line-height: 0.95;
+  }
 }
 
 .typography--variant-heading4 {
@@ -40,9 +68,21 @@
   line-height: 1.4;
   letter-spacing: -1px;
   text-align: center;
+
+  @include breakpoint('tablet-and-up') {
+    font-size: 24px;
+  }
 }
 
+.typography--variant-subheding2 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.45;
 
+  @include breakpoint('tablet-and-up') {
+    font-size: 20px;
+  }
+}
 
 .typography--variant-subheding3 {
   font-weight: 500;
@@ -57,4 +97,3 @@
   line-height: 1.45;
   letter-spacing: -1px;
 }
-

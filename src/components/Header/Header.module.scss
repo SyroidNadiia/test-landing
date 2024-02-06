@@ -9,11 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 92px;
-
-  @include breakpoint('tablet') {
-    min-height: 96px;
-  }
+  min-height: 96px;
 
   @include breakpoint('desktop') {
     min-height: 106px;
@@ -28,13 +24,6 @@
 
 .logo img {
   object-fit: contain;
-}
-
-.second {
-    position: fixed;
-    top: 32px;
-    left: 20px;
-    z-index: 1000;
 }
 
 .burgerMenu {
@@ -73,7 +62,8 @@
   pointer-events: all;
 }
 
-.menuIcon {
+.menuIcon,
+.closeIcon {
   display: flex;
   border: none;
   outline: none;
@@ -90,6 +80,15 @@
   gap: 5px;
 }
 
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 15;
+}
+
+
 .mobileMenu {
   display: flex;
   flex-direction: column;
@@ -99,18 +98,6 @@
   margin-top: 62px;
 }
 
-.closeIcon {
-  position: absolute;
-  top: 32px;
-  right: 32px;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  overflow: hidden;
-  z-index: 15;
-}
 
 .scrolled .menuButtonFixed {
   position: fixed;
