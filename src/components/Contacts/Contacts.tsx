@@ -19,56 +19,58 @@ interface ContactsProps {
 const Contacts: React.FC<ContactsProps> = ({ id }) => {
   return (
     <Section id={id}>
-      <Container>
-        <Typography
-          variant="heading4"
-          color="var(--cl-accent)"
-          className={styles.addressTitle}
-        >
-          Kontakty
-        </Typography>
-        <div>
+      <Container className={styles.contactsContainer}>
+        <div className={styles.contactsWrapper}>
+          <div className={styles.addressWrapper}>
           <Typography
-            variant="heading5"
-            color="var(--cl-main)"
-            className={styles.addressDescription}
+            variant="heading4"
+            color="var(--cl-accent)"
+            className={styles.addressTitle}
           >
-            Confetti - Studio <br />
-            Dekoracij Balonami <br />
-            Warszawa
+            Kontakty
           </Typography>
+          
+            <Typography
+              variant="heading5"
+              color="var(--cl-main)"
+              className={styles.addressDescription}
+            >
+              Confetti - Studio <br />
+              Dekoracij Balonami <br />
+              Warszawa
+            </Typography>
 
-          <address>
-            <ul className={styles.addressList}>
-              <li className={styles.addressItem}>
-                <BsTelephone
-                  style={{ width: 24, height: 24 }}
-                  fill="var(--cl-main)"
-                />
-                <Link
-                  href={`tel:${PHONE_NUMBER}`}
-                  className={`${styles.addressLink} ${inter.className}`}
-                >
-                  {PHONE_NUMBER}
-                </Link>
-              </li>
-              <li className={styles.addressItem}>
-                <IoMailOutline
-                  style={{ width: 24, height: 24 }}
-                  fill="var(--cl-main)"
-                />
-                <Link
-                  href={`mailto:${EMAIL_ADDRESS}`}
-                  className={`${styles.addressLink} ${inter.className}`}
-                >
-                  {EMAIL_ADDRESS}
-                </Link>
-              </li>
-            </ul>
-          </address>
+            <address>
+              <ul className={styles.addressList}>
+                <li className={styles.addressItem}>
+                  <BsTelephone
+                    style={{ width: 24, height: 24 }}
+                    fill="var(--cl-main)"
+                  />
+                  <Link
+                    href={`tel:${PHONE_NUMBER}`}
+                    className={`${styles.addressLink} ${inter.className}`}
+                  >
+                    {PHONE_NUMBER}
+                  </Link>
+                </li>
+                <li className={styles.addressItem}>
+                  <IoMailOutline
+                    style={{ width: 24, height: 24 }}
+                    fill="var(--cl-main)"
+                  />
+                  <Link
+                    href={`mailto:${EMAIL_ADDRESS}`}
+                    className={`${styles.addressLink} ${inter.className}`}
+                  >
+                    {EMAIL_ADDRESS}
+                  </Link>
+                </li>
+              </ul>
+            </address>
+          </div>
+          <InformationForm />
         </div>
-
-        <InformationForm />
       </Container>
     </Section>
   );

@@ -61,7 +61,7 @@ const InformationForm = () => {
 
   return (
     <Section className={styles.sectionForm}>
-      <Container>
+      <Container className={styles.formContainer}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.formWrapper}>
             <Input

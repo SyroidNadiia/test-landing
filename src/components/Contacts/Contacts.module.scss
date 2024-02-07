@@ -1,5 +1,21 @@
 @import '../../scss/utilities/breakpoint-mixin.scss';
 
+
+.contactsContainer {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.addressWrapper {
+  @include breakpoint('desktop') {
+    display: flex;
+   flex-direction: column;
+   margin-top: 140px;
+  align-items: flex-start;
+  }
+}
+
 .addressTitle {
   margin-bottom: 36px;
 }
@@ -32,4 +48,18 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
+  margin-bottom: 36px;
+
+  @include breakpoint('tablet') {
+    margin-bottom: 88px;
+  }
+}
+
+.contactsWrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('desktop') {
+    flex-direction: row;
+  }
 }

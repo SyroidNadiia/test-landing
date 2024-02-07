@@ -1,6 +1,20 @@
+@import '../../scss/utilities/breakpoint-mixin.scss';
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sectionForm {
   padding: 48px 0;
   background-color: var(--cl-extra-accent);
+
+  @include breakpoint('tablet-and-up') {
+    padding: 69px 0;
+    border-radius: 24px;
+    width: 608px;
+  }
 }
 
 .formWrapper {
@@ -8,4 +22,9 @@
   flex-direction: column;
   gap: 24px;
   margin-bottom: 24px;
+  align-items: center;
+
+  @include breakpoint('tablet-and-up') {
+    margin-bottom: 32px;
+  }
 }

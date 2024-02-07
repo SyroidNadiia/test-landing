@@ -1,5 +1,11 @@
 @import '../../scss/utilities/breakpoint-mixin.scss';
 
+.inputContainer {
+  display: flex;
+  flex-direction: column; 
+  gap: 2px;
+}
+
 /* Label */
 .label {
   display: inline-block;
@@ -21,6 +27,11 @@
   padding: 20px 24px;
   outline: none;
   appearance: none;
+
+@include breakpoint('tablet-and-up') {
+   width: 443px;
+  }
+
 }
 
 .input:valid {
