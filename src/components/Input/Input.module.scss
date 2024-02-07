@@ -2,8 +2,10 @@
 
 .inputContainer {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 2px;
+  width: 100%;
+  position: relative;
 }
 
 /* Label */
@@ -18,6 +20,7 @@
 }
 
 /* Input field*/
+
 .input {
   color: var(--cl-light-gray-2);
   border-radius: 9px;
@@ -28,10 +31,9 @@
   outline: none;
   appearance: none;
 
-@include breakpoint('tablet-and-up') {
-   width: 443px;
+  @include breakpoint('tablet-and-up') {
+    width: 443px;
   }
-
 }
 
 .input:valid {
@@ -75,7 +77,8 @@
   opacity: 1;
   visibility: visible;
   position: absolute;
-  right: 44px;
+  right: 8px;
+  bottom: -25px;
   margin-top: 4px;
   color: var(--cl-accent);
   font-size: 14px;

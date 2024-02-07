@@ -9,6 +9,8 @@
 .sectionForm {
   padding: 48px 0;
   background-color: var(--cl-extra-accent);
+  position: relative;
+  z-index: 2;
 
   @include breakpoint('tablet-and-up') {
     padding: 69px 0;
@@ -26,5 +28,6 @@
 
   @include breakpoint('tablet-and-up') {
     margin-bottom: 32px;
+    z-index: 2;
   }
 }

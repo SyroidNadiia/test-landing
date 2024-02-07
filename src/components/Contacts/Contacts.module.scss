@@ -1,27 +1,85 @@
 @import '../../scss/utilities/breakpoint-mixin.scss';
 
+@mixin balloon($width, $height, $top, $left, $transform, $image) {
+  content: '';
+  position: absolute;
+  width: $width;
+  height: $height;
+  top: $top;
+  left: $left;
+  transform: $transform;
+  background-image: url(../../../public/images/#{$image}.png);
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  animation: balloonAnimation 4s ease-in-out infinite;
+}
 
 .contactsContainer {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactsWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  @include breakpoint('desktop') {
+    flex-direction: row;
+  }
+
+  &::before {
+    @include breakpoint('tablet') {
+      @include balloon(424px, 432px, 250px, -89px, rotate(-34deg), balloons1);
+    }
+
+    @include breakpoint('desktop') {
+      @include balloon(520px, 480px, -116px, 424px, rotate(-34deg), balloons1);
+    }
+  }
+
+  &::after {
+    @include breakpoint('tablet') {
+      @include balloon(376px, 389px, 530px, 393px, rotate(-4deg), balloons2);
+    }
+
+    @include breakpoint('desktop') {
+      @include balloon(419px, 424px, 150px, 930px, rotate(-8deg), balloons2);
+    }
+  }
 }
 
 .addressWrapper {
   @include breakpoint('desktop') {
     display: flex;
-   flex-direction: column;
-   margin-top: 140px;
-  align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 140px;
+    width: 100%;
   }
 }
 
 .addressTitle {
   margin-bottom: 36px;
+
+  @include breakpoint('desktop') {
+    margin-bottom: 56px;
+  }
 }
 
 .addressDescription {
   margin-bottom: 24px;
+
+  @include breakpoint('desktop') {
+    text-align: left;
+    margin-bottom: 32px;
+  }
 }
 
 .addressLink {
@@ -53,13 +111,21 @@ align-items: center;
   @include breakpoint('tablet') {
     margin-bottom: 88px;
   }
+
+  @include breakpoint('desktop') {
+    align-items: start;
+    margin-bottom: 0;
+  }
 }
 
-.contactsWrapper {
-    display: flex;
-    flex-direction: column;
-
-    @include breakpoint('desktop') {
-    flex-direction: row;
+@keyframes balloonAnimation {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
   }
 }

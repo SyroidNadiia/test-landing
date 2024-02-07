@@ -1,5 +1,12 @@
 @import '../../../scss/utilities/breakpoint-mixin.scss';
 
+.slider_body {
+  border-radius: 24px;
+  position: relative;
+  height: 253px;
+  gap: 20px;
+}
+
 .advantageElement {
   display: flex;
   flex-direction: column;

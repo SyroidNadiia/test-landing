@@ -9,6 +9,7 @@ import validationSchema, {
   InformationFormValidation,
 } from '@helpers/formValidationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Notiflix from 'notiflix';
 
 import styles from './InformationForm.module.scss';
 
@@ -33,6 +34,7 @@ const errorMessages: InformationFormValidation = {
 
 const InformationForm = () => {
   const [orderNotes, setOrderNotes] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const formControl = useForm<InformationFormValues>({
     mode: 'onBlur',
@@ -49,8 +51,20 @@ const InformationForm = () => {
   } = formControl;
 
   const onSubmit = async (dataForm: InformationFormValues) => {
-    console.log(dataForm);
-    formControl.reset();
+    try {
+      setIsLoading(true);
+      console.log(dataForm);
+      formControl.reset();
+      setOrderNotes('');
+      Notiflix.Notify.success('Dziękuję! Dane wysłane pomyślnie.');
+    } catch (e) {
+      console.error(e);
+      Notiflix.Notify.failure(
+        'Wystąpił problem podczas wysyłania danych. Spróbuj ponownie.'
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleOrderNotesChange = (
