@@ -66,13 +66,11 @@ a {
 }
 
 a,
-svg,
 button {
-  transition: color 0.3s ease;
+  transition: color var(--animat);
 }
 
 a:hover,
-svg:hover,
 button:hover {
   color: var(--cl-accent);
 }

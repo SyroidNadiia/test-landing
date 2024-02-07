@@ -89,6 +89,7 @@
   text-align: center;
   letter-spacing: -1px;
   color: var(--cl-extra-text);
+  transition: color var(--animat);
 
   @include breakpoint('tablet-and-up') {
     font-size: 24px;
@@ -100,6 +101,7 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: color var(--animat);
 }
 
 .addressItem:hover .addressLink,

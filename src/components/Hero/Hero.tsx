@@ -11,17 +11,17 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ id }) => {
   return (
     <Section id={id}>
-        <div className={styles.heroOverlay}>
-          <Typography
-            variant="heading1"
-            color="var(--cl-accent)"
-            className={styles.heroTitle}
-          >
-            Tworzymy unikalne <br /> i niepowtarzalne <br />
-            <span className={styles.heroText}>dekoracje balonowe</span>
-            <br /> na imprezy
-          </Typography>
-        </div>
+      <div className={styles.heroOverlay}>
+        <Typography
+          variant="heading1"
+          color="var(--cl-accent)"
+          className={styles.heroTitle}
+        >
+          Tworzymy unikalne <br /> i niepowtarzalne <br />
+          <span className={styles.heroText}>dekoracje balonowe</span>
+          <br /> na imprezy
+        </Typography>
+      </div>
     </Section>
   );
 };

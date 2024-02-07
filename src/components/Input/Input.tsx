@@ -54,7 +54,9 @@ const Input = forwardRef<InputRefType, InputProps>((props, ref) => {
 
   return (
     <div
-    className={`${styles.errorContainer} ${error ? styles.errorVisible : ''} ${styles.inputContainer}`}
+      className={`${styles.errorContainer} ${
+        error ? styles.errorVisible : ''
+      } ${styles.inputContainer}`}
     >
       {label && (
         <label className={`${inter.className} ${styles.label}`} htmlFor={id}>

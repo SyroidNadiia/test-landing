@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Confetti Landing Page
+
+Welcome to the Confetti landing page project! This project aims to create an
+interactive and visually appealing landing page using Next.js.
+
+## Technologies
+
+Next.js, TypeScript, JS, React Hook Form, Yup (Form Validation), React Icons,
+React Slick (Carousel), SCSS
+
+## Technical Requirements
+
+### Header
+
+Header containing a logo and burger menu icon. Logo and menu name disappear upon
+scrolling, leaving only the burger menu icon. When the user returns to the Hero
+section, the logo and menu name reappear.
+
+### Burger Menu
+
+Contains a close button and navigation menu. Each menu item should be clickable,
+smoothly scrolling to the corresponding section on the page.
+
+### Hero (Główna)
+
+Light animation of confetti implemented.
+
+### About Us (O nas)
+
+CSS Grid algorithm used for card layout. Slider implemented on mobile. Slide
+changes can be made by clicking on the pagination or by dragging.
+
+### Reviews (Recenzje)
+
+Slide changes can be made by clicking on the buttons (or pagination) or by
+dragging. Clicking on a button switches to the corresponding slide.
+
+### Contacts (Kontakty)
+
+Form validation implemented. Name and Email fields are mandatory, and the
+Message field is optional.
+
+### Footer
+
+Contains a logo and copyright information.
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Clone the repository. Install dependencies using npm install. Start the
+development server using npm run dev.

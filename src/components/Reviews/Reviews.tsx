@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import Slider from 'react-slick';
 import Container from '@components/Container/Container';
+import ReusableSlider from '@components/ReusableSlider/ReusableSlider';
 import Section from '@components/Section/Section';
-import ReusableSlider from '@components/shared/ReusableSlider/ReusableSlider';
 import Typography from '@components/Typography/Typography';
 
 import ReviewItem from './ReviewItem/ReviewItem';

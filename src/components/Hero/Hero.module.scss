@@ -36,7 +36,7 @@
     background-size: cover;
     background-position: center;
     z-index: 1;
-      animation: balloonAnimation 4s ease-in-out infinite;
+    animation: balloonAnimation 4s ease-in-out infinite;
 
     @include breakpoint('tablet') {
       width: 307px;
@@ -65,7 +65,7 @@
     background-image: url(../../../public/images/balloons2.png);
     background-size: cover;
     z-index: 1;
-      animation: balloonAnimation 4s ease-in-out infinite;
+    animation: balloonAnimation 4s ease-in-out infinite;
 
     @include breakpoint('tablet') {
       width: 346px;
@@ -102,7 +102,6 @@
 .heroText {
   color: var(--cl-main);
 }
-
 
 @keyframes balloonAnimation {
   0% {

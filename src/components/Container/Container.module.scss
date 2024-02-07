@@ -3,7 +3,6 @@
 .container {
   width: 100%;
   margin: 0 auto;
- 
 
   /*Mobile styles (from 0 to 359.98px )*/
   @include breakpoint('mobile-small') {

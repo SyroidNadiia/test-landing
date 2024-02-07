@@ -4,8 +4,8 @@ import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import { inter } from '@app/fonts';
 import Container from '@components/Container/Container';
+import ReusableSlider from '@components/ReusableSlider/ReusableSlider';
 import Section from '@components/Section/Section';
-import ReusableSlider from '@components/shared/ReusableSlider/ReusableSlider';
 import Typography from '@components/Typography/Typography';
 import { useWindowSize } from 'usehooks-ts';
 
@@ -22,7 +22,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const sliderRef = useRef<Slider | null>(null);
   const advantageData = generateAdvantageCards();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const { width } = useWindowSize() || {}; 
+  const { width } = useWindowSize() || {};
   const isMobScreen = width < 767 && width !== undefined;
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

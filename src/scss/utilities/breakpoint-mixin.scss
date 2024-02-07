@@ -1,25 +1,25 @@
-@import "./valiables.scss";
+@import './valiables.scss';
 
 @mixin breakpoint($breakpoint) {
   //від 0 до 359.98px
-  @if $breakpoint == "mobile-small" {
+  @if $breakpoint == 'mobile-small' {
     @media (max-width: #{$mobile-breakpoint}) {
       @content;
     }
 
     // від 360px до 767.98
-  } @else if $breakpoint == "mobile" {
+  } @else if $breakpoint == 'mobile' {
     @media (min-width: #{$mobile-breakpoint + 0.02}) and (max-width: #{$tablet-breakpoint}) {
       @content;
     }
     // від 768px до 1439.98px
-  } @else if $breakpoint == "tablet" {
+  } @else if $breakpoint == 'tablet' {
     @media (min-width: #{$tablet-breakpoint + 0.02}) and (max-width: #{$desktop-breakpoint}) {
       @content;
     }
 
     // від 1440px і далі
-  } @else if $breakpoint == "desktop" {
+  } @else if $breakpoint == 'desktop' {
     @media (min-width: #{$desktop-breakpoint + 0.02}) {
       @content;
     }

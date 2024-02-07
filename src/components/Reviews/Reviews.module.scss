@@ -39,7 +39,7 @@
     gap: 24px;
   }
 
-   @include breakpoint('tablet') {
+  @include breakpoint('tablet') {
     height: 220px;
   }
 

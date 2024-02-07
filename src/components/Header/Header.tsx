@@ -61,9 +61,7 @@ const Header = () => {
               onClick={toggleMenuOpen}
               aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             >
-              <PiCirclesFourFill
-                className={styles.headerMenuLink}
-              />
+              <PiCirclesFourFill className={styles.headerMenuLink} />
             </button>
           </LinkScroll>
         )}
@@ -99,7 +97,10 @@ const Header = () => {
             aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
           >
             menu
-            <PiCirclesFourFill style={{ width: 24, height: 24 }} />
+            <PiCirclesFourFill
+              style={{ width: 24, height: 24 }}
+              className={styles.headerMenuIcon}
+            />
           </button>
         )}
 
