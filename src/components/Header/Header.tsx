@@ -41,7 +41,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+    <header
+      className={`${styles.header} ${
+        isScrolled && !isMobileMenuOpen ? styles.scrolled : ''
+      }
+      ${isMobileMenuOpen ? styles.fixed : ''}`}
+    >
       <Container className={styles.headerContainer}>
         {isScrolled && !isMobileMenuOpen && (
           <LinkScroll
@@ -56,7 +61,9 @@ const Header = () => {
               onClick={toggleMenuOpen}
               aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             >
-              <PiCirclesFourFill style={{ width: 24, height: 24 }} />
+              <PiCirclesFourFill
+                className={styles.headerMenuLink}
+              />
             </button>
           </LinkScroll>
         )}
@@ -76,9 +83,11 @@ const Header = () => {
           />
         </Link>
 
-        {!isScrolled && isMobileMenuOpen ? (
+        {isMobileMenuOpen ? (
           <TbSquareRoundedLetterX
-            className={styles.closeIcon}
+            className={`${styles.closeIcon} ${
+              isMobileMenuOpen ? styles.fixed : ''
+            }`}
             onClick={toggleMenuOpen}
             aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
           />

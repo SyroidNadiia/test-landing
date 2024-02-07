@@ -5,6 +5,14 @@
   background-color: var(--cl-white);
 }
 
+.header.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .headerContainer {
   display: flex;
   align-items: center;
@@ -48,11 +56,12 @@
     content: '';
     position: fixed;
     width: 100%;
-    min-height: 56px;
+    min-height: 96px;
     top: 0;
     left: 0;
     background-color: var(--cl-white);
-    z-index: 11;
+    z-index: 999;
+    overflow: hidden;
   }
 }
 
@@ -88,6 +97,22 @@
   z-index: 15;
 }
 
+.closeIcon.fixed {
+  position: fixed;
+  top: 32px;
+  right: 44px;
+  z-index: 1000;
+
+  @include breakpoint('tablet') {
+    top: 37px;
+    right: 54px;
+  }
+
+  @include breakpoint('desktop') {
+    top: 37px;
+    right: 112px;
+  }
+}
 
 .mobileMenu {
   display: flex;
@@ -98,22 +123,28 @@
   margin-top: 62px;
 }
 
-
-.scrolled .menuButtonFixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
 .headerLink {
   cursor: pointer;
 }
 
+.headerMenuLink {
+  width: 24px;
+  height: 24px;
+
+  @include breakpoint('tablet') {
+    width: 36px;
+    height: 36px;
+  }
+
+  @include breakpoint('desktop') {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 .menuButton {
   position: fixed;
-  right: 10px;
+  right: 20px;
   top: 34px;
 
   display: inline-block;
@@ -127,4 +158,16 @@
   background-size: contain;
   z-index: 999;
   cursor: pointer;
+
+  @include breakpoint('tablet') {
+    right: 30px;
+    width: 36px;
+    height: 36px;
+  }
+
+  @include breakpoint('desktop') {
+    right: 40px;
+    width: 48px;
+    height: 48px;
+  }
 }

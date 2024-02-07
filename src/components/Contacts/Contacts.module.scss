@@ -99,6 +99,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+}
+
+.addressItem:hover .addressLink,
+.addressItem:hover .addressIcon {
+  fill: var(--cl-accent);
+  color: var(--cl-accent);
 }
 
 .addressList {

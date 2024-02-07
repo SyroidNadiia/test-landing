@@ -45,7 +45,7 @@ const Contacts: React.FC<ContactsProps> = ({ id }) => {
                 <li className={styles.addressItem}>
                   <BsTelephone
                     style={{ width: 24, height: 24 }}
-                    fill="var(--cl-main)"
+                    fill="var(--cl-main)" className={styles.addressIcon}
                   />
                   <Link
                     href={`tel:${PHONE_NUMBER}`}
@@ -57,7 +57,7 @@ const Contacts: React.FC<ContactsProps> = ({ id }) => {
                 <li className={styles.addressItem}>
                   <IoMailOutline
                     style={{ width: 24, height: 24 }}
-                    fill="var(--cl-main)"
+                    fill="var(--cl-main)" className={styles.addressIcon}
                   />
                   <Link
                     href={`mailto:${EMAIL_ADDRESS}`}

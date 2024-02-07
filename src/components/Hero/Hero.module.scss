@@ -3,7 +3,7 @@
 .heroOverlay {
   margin: -96px auto 0;
   background-repeat: no-repeat;
-  background-size: top left;
+  background-size: cover;
   background-position: center;
   background-image: url(../../../public/images/background.png);
   width: 100%;
@@ -17,14 +17,12 @@
   @include breakpoint('tablet') {
     height: 698px;
     min-width: 768px;
-    background-size: 768px 698px;
   }
 
   @include breakpoint('desktop') {
     height: 800px;
     margin: -106px auto 0;
     min-width: 1440px;
-    background-size: 1600px 800px;
   }
 
   &::before {
