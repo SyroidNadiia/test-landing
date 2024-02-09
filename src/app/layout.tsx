@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@components/Footer/Footer";
 import Header from "@components/Header/Header";
+import ScrollToTopButton from "@components/ScrollToTopButton/ScrollToTopButton";
 
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Header />
         <main className={styles.main}>{children}</main>
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

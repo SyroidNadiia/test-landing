@@ -154,7 +154,7 @@
 
 .menuButton {
   position: fixed;
-  right: 20px;
+  right: 30px;
   top: 34px;
 
   display: inline-block;
@@ -170,13 +170,11 @@
   cursor: pointer;
 
   @include breakpoint('tablet') {
-    right: 30px;
     width: 36px;
     height: 36px;
   }
 
   @include breakpoint('desktop') {
-    right: 40px;
     width: 48px;
     height: 48px;
   }
