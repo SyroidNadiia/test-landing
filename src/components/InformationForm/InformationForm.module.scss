@@ -6,11 +6,12 @@
   align-items: center;
 }
 
-.sectionForm {
+.formSection {
   padding: 48px 0;
   background-color: var(--cl-extra-accent);
   position: relative;
   z-index: 2;
+  width: 100vw;
 
   @include breakpoint('tablet-and-up') {
     padding: 69px 0;
