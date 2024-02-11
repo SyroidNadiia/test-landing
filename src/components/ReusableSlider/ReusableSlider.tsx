@@ -33,7 +33,7 @@ const ReusableSlider = forwardRef<ForwardedRefType, ReusableSliderProps>(
     {
       children,
       slidesToShow = 1,
-      infinite = false,
+      infinite = true,
       dots = false,
       arrows = false,
       slidesToScroll = 1,
@@ -78,6 +78,7 @@ const ReusableSlider = forwardRef<ForwardedRefType, ReusableSliderProps>(
         ref={ref}
         beforeChange={beforeChange}
         afterChange={afterChange}
+        
       >
         {children}
       </Slider>

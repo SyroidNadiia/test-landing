@@ -3,7 +3,7 @@
 @mixin breakpoint($breakpoint) {
   // від 360 до 479.98px
   @if $breakpoint == 'mobile-small' {
-    @media (min-width: #{$mobile-small-breakpoint + 0.02}) and (max-width: #{$mobile-breakpoint}) {
+    @media (max-width: #{$mobile-breakpoint}) {
       @content;
     }
 

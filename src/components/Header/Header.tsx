@@ -16,33 +16,27 @@ import styles from './Header.module.scss';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [originalOverflow, setOriginalOverflow] = useState('');
 
   useEffect(() => {
-    function handleEscKeyPress(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        setIsMobileMenuOpen(false);
-      }
-    }
+    // const handleBodyScroll = () => {
+    //   if (isMobileMenuOpen) {
+    //     setOriginalOverflow(document.body.style.overflow);
+    //     document.body.style.overflow = 'hidden';
+    //   } else {
+    //     document.body.style.overflow = originalOverflow;
+    //   }
+    // };
 
-    window.addEventListener('keydown', handleEscKeyPress);
-
-    return () => {
-      window.removeEventListener('keydown', handleEscKeyPress);
-    };
-  }, []);
-
-  useEffect(() => {
-    function handleScroll() {
-      const offset = window.scrollY;
-      setIsScrolled(offset > 50);
-    }
-
+    window.addEventListener('keydown', onEscKeydown);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('keydown', onEscKeydown);
+      window.addEventListener('scroll', handleScroll);
+      document.body.style.overflow = originalOverflow;
     };
-  }, []);
+  }, [isMobileMenuOpen, originalOverflow]);
 
   const toggleMenuOpen = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -52,6 +46,17 @@ const Header = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
+  };
+
+  const onEscKeydown = (e: KeyboardEvent) => {
+    if (e.code === 'Escape') {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setIsScrolled(offset > 50);
   };
 
   return (
