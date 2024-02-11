@@ -3,14 +3,13 @@
 import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import { inter } from '@app/fonts';
+import AdvantageItem from '@components/AdvantageItem/AdvantageItem';
 import Container from '@components/Container/Container';
 import ReusableSlider from '@components/ReusableSlider/ReusableSlider';
 import Section from '@components/Section/Section';
 import Typography from '@components/Typography/Typography';
+import advantagesData from '@data/data.json';
 import { useWindowSize } from 'usehooks-ts';
-
-import AdvantageItem from './AdvantageItem/AdvantageItem';
-import { generateAdvantageCards } from './advantageCard';
 
 import styles from './AboutUs.module.scss';
 
@@ -18,12 +17,31 @@ interface AboutUsProps {
   id: string;
 }
 
+interface AdvantageCardProps {
+  id: number;
+  title: string;
+  description: string;
+  colorClass?: string;
+}
+
 const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const sliderRef = useRef<Slider | null>(null);
-  const advantageData = generateAdvantageCards();
+
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const { width } = useWindowSize() || {};
   const isMobScreen = width < 767 && width !== undefined;
+
+  const advantages = advantagesData.advantages;
+
+  const generateAdvantageCards = (): AdvantageCardProps[] => {
+    return advantages.map((item, index) => ({
+      id: index + 1,
+      title: item.title,
+      description: item.description,
+    }));
+  };
+
+  const advantageData = generateAdvantageCards();
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();

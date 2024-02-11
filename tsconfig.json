@@ -22,10 +22,11 @@
     ],
     "paths": {
       "@components/*": ["./src/components/*"],
+      "@sections/*": ["./src/sections/*"],
       "@app/*": ["./src/app/*"],
       "@images/*": ["./public/images/*"],
       "@helpers/*": ["./src/helpers/*"],
-      "@types/*": ["./src/types/*"],
+      "@data/*": ["./data/*"],
       "@lib/*": ["./lib/*"],
       "@context/*": ["./context/*"],
       "@hooks/*": ["./src/hooks/*"],

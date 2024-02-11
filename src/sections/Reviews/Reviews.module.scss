@@ -1,0 +1,90 @@
+@import '../../scss/utilities/breakpoint-mixin.scss';
+
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+
+  @include breakpoint('tablet') {
+    gap: 48px;
+  }
+
+  @include breakpoint('desktop') {
+    gap: 64px;
+  }
+}
+
+.body {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  left: 16px;
+  top: 40px;
+  z-index: 1;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.reviewsList {
+  @include breakpoint('only-mobile') {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  @include breakpoint('tablet') {
+    height: 220px;
+  }
+
+  @include breakpoint('destop') {
+    height: 277px;
+  }
+}
+
+.dots {
+  margin-top: 36px;
+
+  @include breakpoint('tablet-and-up') {
+    display: none;
+  }
+}
+
+.controls {
+  display: none;
+
+  @include breakpoint('tablet') {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  @include breakpoint('desktop') {
+    display: none;
+  }
+}
+
+.prevButton,
+.nextButton {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--cl-lighter-gray);
+  outline: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background-color: rgba(255, 248, 249, 0.5);
+
+  cursor: pointer;
+
+  transition: background-color var(--animat);
+}

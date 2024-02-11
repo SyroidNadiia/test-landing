@@ -17,15 +17,19 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenuOpen = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  useEffect(() => {
+    const handleEscKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
 
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  };
+    window.addEventListener('keydown', handleEscKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscKeyPress);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +43,16 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const toggleMenuOpen = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  };
 
   return (
     <header

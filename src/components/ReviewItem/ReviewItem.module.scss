@@ -1,0 +1,48 @@
+@import '../../scss/utilities/breakpoint-mixin.scss';
+
+.slider_body {
+  border-radius: 20px;
+  position: relative;
+  height: 229px;
+
+  @include breakpoint('tablet') {
+    height: 220px;
+  }
+
+  @include breakpoint('desktop') {
+    height: 277px;
+  }
+}
+
+.reviewElement {
+  background-color: var(--cl-extra-accent);
+  padding: 24px;
+  border-radius: 24px;
+  width: 320px;
+  height: 229px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include breakpoint('tablet') {
+    height: 220px;
+    width: 346px;
+  }
+
+  @include breakpoint('desktop') {
+    height: 277px;
+    width: 388px;
+    padding: 36px 24px;
+  }
+}
+
+.reviewAuthor {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reviewIcon {
+  width: 24px;
+  height: 24px;
+}
