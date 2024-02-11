@@ -18,11 +18,11 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleEscKeyPress = (event: KeyboardEvent) => {
+    function handleEscKeyPress(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         setIsMobileMenuOpen(false);
       }
-    };
+    }
 
     window.addEventListener('keydown', handleEscKeyPress);
 
@@ -32,10 +32,10 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
+    function handleScroll() {
       const offset = window.scrollY;
       setIsScrolled(offset > 50);
-    };
+    }
 
     window.addEventListener('scroll', handleScroll);
 
