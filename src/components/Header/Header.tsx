@@ -16,27 +16,32 @@ import styles from './Header.module.scss';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [originalOverflow, setOriginalOverflow] = useState('');
 
   useEffect(() => {
-    // const handleBodyScroll = () => {
-    //   if (isMobileMenuOpen) {
-    //     setOriginalOverflow(document.body.style.overflow);
-    //     document.body.style.overflow = 'hidden';
-    //   } else {
-    //     document.body.style.overflow = originalOverflow;
-    //   }
-    // };
+    const onEscKeydown = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
 
-    window.addEventListener('keydown', onEscKeydown);
-    window.addEventListener('scroll', handleScroll);
+    if (isMobileMenuOpen) {
+      window.addEventListener('keydown', onEscKeydown);
+    } else {
+      window.removeEventListener('keydown', onEscKeydown);
+    }
 
     return () => {
       window.removeEventListener('keydown', onEscKeydown);
-      window.addEventListener('scroll', handleScroll);
-      document.body.style.overflow = originalOverflow;
     };
-  }, [isMobileMenuOpen, originalOverflow]);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.addEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenuOpen = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -45,12 +50,6 @@ const Header = () => {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
-    }
-  };
-
-  const onEscKeydown = (e: KeyboardEvent) => {
-    if (e.code === 'Escape') {
-      setIsMobileMenuOpen(false);
     }
   };
 
@@ -68,12 +67,6 @@ const Header = () => {
     >
       <Container className={styles.headerContainer}>
         {isScrolled && !isMobileMenuOpen && (
-          <LinkScroll
-            to="Hero"
-            smooth={true}
-            duration={500}
-            className={styles.headerLink}
-          >
             <button
               type="button"
               className={styles.menuButton}
@@ -82,7 +75,6 @@ const Header = () => {
             >
               <PiCirclesFourFill className={styles.headerMenuLink} />
             </button>
-          </LinkScroll>
         )}
 
         {/* Logo */}

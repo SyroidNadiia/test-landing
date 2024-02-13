@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Button from '@components/Button/Button';
 import Container from '@components/Container/Container';
@@ -42,6 +42,17 @@ const InformationForm = () => {
     resolver: yupResolver(validationSchema(errorMessages)),
   });
 
+  useEffect(() => {
+    const storedOrderNotes = localStorage.getItem('orderNotes');
+    if (storedOrderNotes) {
+      setOrderNotes(storedOrderNotes);
+    }
+  }, []);
+
+  const saveToLocalStorage = (data: string) => {
+    localStorage.setItem('formData', data);
+  };
+
   const {
     register,
     handleSubmit,
@@ -57,6 +68,8 @@ const InformationForm = () => {
       formControl.reset();
       setOrderNotes('');
       Notiflix.Notify.success('Dziękuję! Dane wysłane pomyślnie.');
+
+      saveToLocalStorage(JSON.stringify(dataForm));
     } catch (e) {
       console.error(e);
       Notiflix.Notify.failure(

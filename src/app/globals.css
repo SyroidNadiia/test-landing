@@ -70,8 +70,7 @@ button {
   transition: color var(--animat);
 }
 
-a:hover,
-button:hover {
+a:hover {
   color: var(--cl-accent);
 }
 
